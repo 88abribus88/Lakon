@@ -1,8 +1,12 @@
 # Contributing
 
-Lakon is in active testing. The best contribution right now is **running the protocol and reporting findings**.
+Lakon is in active testing. The best contribution right now is running the protocol and reporting findings.
 
-## How to test
+There are two testing paths depending on your setup. Both produce useful data — they are complementary, not hierarchical.
+
+## With Claude Code (quantitative)
+
+Claude Code runs the full protocol automatically: extraction, translation, token counting, and cold-start audit.
 
 1. Follow `SETUP.md` to install dependencies.
 2. Open the repo in Claude Code.
@@ -10,6 +14,19 @@ Lakon is in active testing. The best contribution right now is **running the pro
 4. Run: `translate path/to/your-doc.md`
 5. Run: `test lakon source=your-doc.md translated=your-doc_lakon.md`
 6. Report your results (see below).
+
+This produces exact token counts (tiktoken cl100k_base), a structured cold-start score, and a reproducible audit trail.
+
+## Without Claude Code (qualitative)
+
+If you are using Claude.ai Projects or the API without Claude Code, copy the system prompt from `prompts/translate-system.md` into your project and translate documents directly.
+
+You can contribute:
+- Convention edge cases — situations where the rules gave unclear or unexpected output
+- Translation quality observations — a sentence or block that translated poorly or produced ambiguity
+- Comprehension gaps — a case where you could tell the translated version lost something the original had
+
+You do not need to run the token protocol. Qualitative findings on real documents in real use contexts are among the most valuable inputs at this stage.
 
 ## What to report
 
