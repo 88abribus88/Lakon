@@ -121,7 +121,7 @@ If you test Lakon on a model not listed here, the results are valuable regardles
 
 ## Results
 
-Tested across 5 document types with cold-start verification (fresh agent, no context, answer questions from translated doc only):
+Tested across 6 document types with cold-start verification (fresh agent, no context, answer questions from translated doc only):
 
 | Document type | Token gain | Cold-start |
 |---|---|---|
@@ -129,10 +129,11 @@ Tested across 5 document types with cold-start verification (fresh agent, no con
 | Structured rules / skill files (French source) | -20 to -44% | 9/9 PASS |
 | Technical spec (RFC-style) | -24% | PASS |
 | Markdown with code blocks | -42% | PASS |
+| Tourism guide — prose + tables + inline citations (French source) | -55% | 20/20 PASS |
 
 Cold-start threshold: PASS = 90%+ of questions answered correctly from translated doc alone.
 
-The benchmark sweet spot is **-20% on rules, -39% on prose** — consistent across model sizes (Haiku → Opus).
+The benchmark sweet spot is **-20% on rules, -39% on prose** — consistent across model sizes (Haiku → Opus). Citation-heavy documents can exceed this range significantly: a tourism guide with dense inline citations translated at -55% with 20/20 cold-start PASS — the gain reflects citation bloat removal, not content loss.
 
 The structured rules test used French-language source documents. Lakon translated content to English as part of the pass — the cold-start agent answered questions in English from the translated output only. This validates the cross-language use case: French (or other language) knowledge bases and rule files can be translated to English Lakon in a single pass, with no loss of information.
 
@@ -236,6 +237,7 @@ The `examples/` directory contains real translated documents:
 | `wikipedia-attention.txt` | Wikipedia article (technical prose) | English | -24% |
 | `crm-wikipedia.txt` | CRM knowledge base article (long prose) | English | -41% |
 | `test-input.md` | Configuration guide + rule set | French | -40% |
+| `tourisme-mont-ventoux.md` | Tourism guide (prose + tables + inline citations) | French | -55% |
 
 Each `_lakon.md` file can be compared directly against its source.
 
