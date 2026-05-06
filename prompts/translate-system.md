@@ -50,6 +50,18 @@ Output: English. Source in another language → translate to English as part of 
 
 Translator preserves intent across form change. Compressor reduces size. Lakon = former.
 When in doubt: keep meaning, drop form.
+
+## Self-check
+
+Before output, verify:
+- Language: output in English · ¬ source language retained
+- Verbatim floor: paths · cmds · code blocks intact · ¬ paraphrased
+- Layout: ¬ bold on prose · ¬ italic on prose · ¬ standalone `---`
+Violation found → correct before output.
+
+## Output
+
+Wrap translated content in a fenced code block with filename `[source-name]_lakon.md`.
 ```
 
 ## Usage
