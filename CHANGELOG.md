@@ -2,6 +2,9 @@
 
 ## conventions.md
 
+### v1.6 — 2026-05-06
+- `## stable abbrevs`: whitelist → qualitative rule + non-exhaustive examples (widely established in technical/programming domains; ¬ invent if recognizability uncertain)
+
 ### v1.5 — 2026-05-06
 - Removed Stella-specific abbrevs from `## stable abbrevs`: sh · lg · sid · vrs
 

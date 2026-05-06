@@ -1,6 +1,6 @@
 ---
 type: meta
-version: 1.5
+version: 1.6
 role: shared core
 ---
 
@@ -70,13 +70,9 @@ absolute     → `¬ ever [rule]` — extends `¬` + temporal scope
 `## behavior` — signals behavioral rules section
 
 ## stable abbrevs
-- tok
-- occ
-- sys
-- cfg
-- cmd
-- ref
-- ts
+Use abbrevs widely established in technical/programming domains — unambiguous without context.
+¬ invent: if recognizability uncertain → write in full.
+Examples (¬ exhaustive): tok · occ · sys · cfg · cmd · ref · ts · impl · auth · err · req · db
 
 ## file formats
 Skills, prompts, memory docs → .md | .txt only.
