@@ -3,7 +3,7 @@ name: translate
 description: |
   Translate any source doc to Lakon + verify output via cold-start audit.
   Triggers: "translate", "lakon this", "traduis en lakon", file path provided.
-version: "1.0"
+version: "1.1"
 trigger: explicit
 executor: main-agent
 ---
@@ -52,8 +52,9 @@ Other extension → signal unsupported format, exit.
 Apply Lakon per `{root}/conventions.md`. All rules apply:
 - Verbatim floor: paths, cmds, IPs, config values, code blocks, URLs, identifiers — ¬ translate
 - Private rule: strip `<private>...</private>` → semantic descriptor
-- Layout: remove `---` horiz rules | `*italic*` prose | `**bold**` prose | HTML comments | emoji
+- Layout: remove `---` horiz rules | `*italic*` prose | `**bold**` prose | HTML comments | emoji | blank lines between `##` header + first content line
 - Symbols: apply stable symbol substitutions where unambiguous
+- Inline prose enumeration: "A, B and C" → `A · B · C`
 - ¬ root truncation; ¬ invented abbrevs
 - ¬ inline-merge list items
 - Source language ≠ English → translate content to English as part of Lakon pass
