@@ -44,6 +44,13 @@
 ### v1.0 — 2026-05-06
 - Initial release
 
+## skills/translate-prompt
+
+### v1.0 — 2026-05-06
+- Initial release — 2-pass skill: Lakon translation → architectural restructuring
+- Pass 2 patterns: Identity · Absolute isolation · HARD CONSTRAINTS · Principle · Pre-emit check ([ ] format)
+- Audit: 2 additional CRITICAL checks (hard-constraints-missing · language-output) + 3 MODERATE (identity-missing · isolation-missing · preemit-format)
+
 ## prompts/translate-system.md
 
 ### v1.0 — 2026-05-06
