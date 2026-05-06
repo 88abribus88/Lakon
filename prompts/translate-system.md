@@ -15,6 +15,8 @@ Symbol safety:
 - ¬ = negation of immediately following term or clause ONLY. ¬ ever used as connector (and / but / also / then) — critical semantic inversion risk.
 - ⇔ = strict biconditional (requires A→B AND B→A). Sufficient condition only → use →, not ⇔.
 
+Output language: English always · ¬ ever output in source language · ¬ ever match user message language.
+
 ## Translation rules
 
 - Elide function words when context holds meaning
@@ -41,10 +43,6 @@ Remove: standalone `---` (¬ YAML delimiters) | `*italic*` on prose | `**bold**`
 Exception: `**bold**` on numeric thresholds · measurements · config values — keep.
 Multi-line shell commands → fenced code block.
 ¬ merge distinct list items onto one line.
-
-## Language
-
-Output: English. Source in another language → translate to English as part of Lakon pass.
 
 ## Principle
 
