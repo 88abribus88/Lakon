@@ -4,7 +4,7 @@ description: |
   Translate a prompt to Lakon + architecturally restructure it.
   Two-pass: Lakon translation → architectural restructuring.
   Triggers: "translate-prompt", "prompt to lakon", file path provided with translate-prompt intent.
-version: "1.0"
+version: "1.1"
 trigger: explicit
 executor: main-agent
 ---
@@ -30,6 +30,11 @@ executor: main-agent
 
 ## Pass 1
 Apply full Lakon per `{root}/conventions.md`. All rules apply — same as `skills/translate § Translation`.
+
+~> formulation patterns (model response scripts): ¬ remove as non-inferable.
+Signals: "Formulation type :", "Formulation :", explicit quoted agent speech defining what to output (e.g. *"Avant de conclure, vérifions [X]…"*).
+These are output scripts, ¬ explanatory examples — removing them changes agent output.
+Test: "If I remove this, does the agent still produce the same phrasing?" → ¬ inferable → keep.
 
 ## Pass 2
 Restructure the Pass 1 output. Apply all transformations below. ¬ add content absent from source.

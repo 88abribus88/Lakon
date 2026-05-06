@@ -46,6 +46,11 @@
 
 ## skills/translate-prompt
 
+### v1.1 — 2026-05-06
+- Pass 1: formulation patterns (model response scripts) protected from non-inferable removal
+  Signals: "Formulation type :", explicit quoted agent speech defining output phrasing
+  Test: "removing this changes agent output?" → ¬ inferable → keep
+
 ### v1.0 — 2026-05-06
 - Initial release — 2-pass skill: Lakon translation → architectural restructuring
 - Pass 2 patterns: Identity · Absolute isolation · HARD CONSTRAINTS · Principle · Pre-emit check ([ ] format)
