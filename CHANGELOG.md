@@ -2,6 +2,9 @@
 
 ## conventions.md
 
+### v1.4 — 2026-05-06
+- Added `## file formats`: skills, prompts, memory docs → .md | .txt only; ¬ binary formats
+
 ### v1.3 — 2026-05-06
 - `## tronc commun` renamed → `## shared core` (non-english header)
 - Added to `## Lakon`: scope extended to all document types (¬ prompts/rules only)

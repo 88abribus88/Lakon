@@ -1,6 +1,6 @@
 ---
 type: meta
-version: 1.3
+version: 1.4
 role: shared core
 ---
 
@@ -81,6 +81,10 @@ absolute     → `¬ ever [rule]` — extends `¬` + temporal scope
 - vrs
 - sid
 - ts
+
+## file formats
+Skills, prompts, memory docs → .md | .txt only.
+¬ .docx | .pdf | binary formats — LLM reads natively, ¬ parser overhead.
 
 ## shared core
 Only non-inferable content. Inferable = derivable from source doc, codebase, or model knowledge.

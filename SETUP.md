@@ -59,3 +59,8 @@ Invoke via Claude Code trigger phrases:
 - Supported formats: `.md`, `.txt`, `.docx`, `.pdf`
 - Output file written next to source: `[filename]_lakon.md`
 - All skills are cross-platform — no OS-specific behavior
+
+## Reading .md files
+
+`.md` files are plain text — open in any text editor (Notepad, TextEdit, gedit).
+For rendered view: VS Code, Obsidian, or any browser with a Markdown Viewer extension.
