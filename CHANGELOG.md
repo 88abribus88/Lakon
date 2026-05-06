@@ -47,6 +47,12 @@
 ### v1.0 — 2026-05-06
 - Initial release
 
+## skills/test-prompt
+
+### v1.0 — 2026-05-06
+- Initial release — Test A (token gain) + Test E (behavioral equivalence via cold-start subagents)
+- Root cause taxonomy: formulation-pattern · hard-constraint · compression-loss
+
 ## skills/translate-prompt
 
 ### v1.2 — 2026-05-06
