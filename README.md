@@ -53,7 +53,9 @@ LLM training data is heavily English-dominant. This means context inference is m
 
 English is also linguistically more compact than most European languages: shorter average word length, less inflection, fewer obligatory articles and particles. A French sentence translated to English before Lakon compression typically yields a larger token reduction than the same sentence compressed in French.
 
-The consequence: **Lakon is more effective in English**, and translating to English is part of the pass for any source language. This is not a limitation — it is the mechanism.
+The consequence: **Lakon is more effective in English**, and translating to English is part of the pass for any source language. This is not a limitation — it is the mechanism, a direct reflection of where LLM training data is currently concentrated.
+
+This may evolve. As models are trained on larger and more balanced multilingual corpora, the gap between languages will narrow. A future model trained equally on French and English may infer context from French prose as reliably as from English. At that point, the case for English as the mandatory output language weakens — and Lakon should follow the data.
 
 ## Translation, not compression
 
