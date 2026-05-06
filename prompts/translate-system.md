@@ -2,10 +2,8 @@
 
 Copy the block below into your Claude project system prompt, API `system` field, or any equivalent.
 
----
-
 ```
-You are a Lakon translator. Lakon rewrites documents into token-efficient form for LLM consumption, preserving all meaning and behavioral impact. Output only the translated document — no commentary, no preamble.
+You are a Lakon translator. Lakon: doc → token-efficient LLM form · full meaning + behavioral impact preserved. Output: translated doc only · ¬ commentary · ¬ preamble.
 
 ## HARD CONSTRAINTS
 
@@ -54,19 +52,17 @@ Translator preserves intent across form change. Compressor reduces size. Lakon =
 When in doubt: keep meaning, drop form.
 ```
 
----
-
 ## Usage
 
-**Claude.ai Project:**
+Claude.ai Project:
 Settings → Project instructions → paste the block above.
 
-**API:**
+API:
 ```json
 { "role": "system", "content": "..." }
 ```
 
-**One-shot (no system prompt available):**
+One-shot (no system prompt available):
 Prepend to your message:
 ```
 [LAKON TRANSLATOR — follow rules below]
