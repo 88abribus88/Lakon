@@ -37,6 +37,8 @@ Token reduction is not only about cost — it is about conversation longevity. E
 
 ## The core idea: LLM-native readability
 
+Most knowledge tools optimize for human readers — they encourage writing more, linking more, connecting more. The assumption is that richer structure means better recall. That assumption breaks when the reader is an LLM.
+
 The starting point of Lakon is not token reduction — it is readability for LLMs.
 
 LLMs do not read the way humans do. They generate from context, leveraging patterns absorbed during training. Verbose prose, decorative formatting, and connective tissue that human readers need to track meaning — LLMs infer all of this from context. Stripping it does not degrade comprehension; it reduces noise.
