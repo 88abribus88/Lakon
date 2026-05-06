@@ -9,7 +9,6 @@ executor: main-agent
 ---
 
 ## Input
-
 - `source` — abs path to original doc (pre-translation)
 - `translated` — abs path to Lakon-translated `.md` (default: `[source-dir]/[basename]_lakon.md`)
 - `{root}` — repo root (contains `conventions.md`)
@@ -17,7 +16,6 @@ executor: main-agent
 `source` required. `translated` absent → derive from `source` basename.
 
 ## Steps
-
 1. Verify both files exist; exit with error if absent
 2. Test A — Token gain (§ Test A)
 3. Test B — Cold-start info loss (§ Test B)
@@ -26,7 +24,6 @@ executor: main-agent
 6. Output report (§ Deliverable)
 
 ## Test A — Token gain
-
 ```python
 import tiktoken
 enc = tiktoken.get_encoding('cl100k_base')
@@ -36,10 +33,9 @@ print(f"src={src} out={out} gain={round((1 - out/src)*100, 1)}%")
 ```
 
 Record: `src_tok`, `out_tok`, `gain_pct`.
-Benchmark: Lakon sweet spot = -20% rules | -39% prose. Signal if gain < -5% (possible over-compression) or gain > -45% (unexpected).
+Benchmark: Lakon sweet spot = -20% rules | -39% prose. Signal if gain < -5% (possible over-compression) or gain > -45% (unexpected). ~> Citation-heavy docs may exceed -45% without content loss — verify via Test B before flagging.
 
 ## Test B — Cold-start info loss
-
 Generate N questions from source content.
 N calibration:
 - Source ≤ 500 tok → 5 questions
@@ -62,7 +58,6 @@ Score: correct / N. PASS ≥ 90%. WARN 75–89%. FAIL < 75%.
 Correct = answer matches source ground truth (assess yourself after subagent responds).
 
 ## Test C — Comprehension
-
 Select 1 representative task derivable from source content.
 Task must require understanding ≥ 3 distinct facts from the source.
 
@@ -78,7 +73,6 @@ Compare outputs:
 Verdict: PASS = same conclusions + ≥ 80% facts matched | WARN = same conclusions, 60–79% facts | FAIL = different conclusions.
 
 ## Test D — Ambiguity
-
 Select 2 rules or instructions from translated doc (prefer conditional/prohibition rules).
 For each rule: define 1 scenario requiring applying the rule — use same scenario for all 3 subagents.
 Spawn 3 subagents per rule (6 total), each cold-start.
@@ -93,7 +87,6 @@ Overall ambiguity score = avg across 2 rules.
 Benchmark: our tests measured baseline prose at 44% avg consistency. Lakon target ≥ 65%.
 
 ## Deliverable
-
 `[test][report]`
 
 ```

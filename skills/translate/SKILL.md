@@ -9,13 +9,11 @@ executor: main-agent
 ---
 
 ## Input
-
 - `path` — abs path to source doc (.docx | .pdf | .md | .txt)
 - `output` — abs path for output file (default: `[source-dir]/[basename]_lakon.md`)
 - `{root}` — repo root (contains `conventions.md`)
 
 ## Steps
-
 1. Resolve `output` path (§ Input)
 2. Extract source text (§ Extraction)
 3. Apply Lakon (§ Translation) — keep extracted text in memory as `src_text`
@@ -29,7 +27,6 @@ executor: main-agent
 8. Output report (§ Deliverable)
 
 ## Extraction
-
 `.md` | `.txt` → read directly.
 
 `.docx`:
@@ -48,7 +45,6 @@ text = extract_text(path)
 Other extension → signal unsupported format, exit.
 
 ## Translation
-
 Apply Lakon per `{root}/conventions.md`. All rules apply:
 - Verbatim floor: paths, cmds, IPs, config values, code blocks, URLs, identifiers — ¬ translate
 - Private rule: strip `<private>...</private>` → semantic descriptor
@@ -60,13 +56,12 @@ Apply Lakon per `{root}/conventions.md`. All rules apply:
 - Source language ≠ English → translate content to English as part of Lakon pass
 
 ## Output format
-
 ```yaml
 ---
 source: [path]
 translated_at: [YYYY-MM-DDTHH:MM:SSZ]   ← generate via: python3 -c "from datetime import datetime,timezone; print(datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))"
 skill: skills/translate
-version: "1.0"
+version: "1.1"
 ---
 ```
 + translated content
@@ -74,14 +69,11 @@ version: "1.0"
 Filename: `[basename]_lakon.md`
 
 ## Audit
-
 After write, spawn cold-start subagent.
 Main agent substitutes `[CONVENTIONS_PATH]` = `{root}/conventions.md` and `[OUTPUT_PATH]` = output file path before passing prompt below.
 Subagent has no prior context — instructions below are complete.
 
----
-SUBAGENT PROMPT (cold-start audit):
-
+## SUBAGENT PROMPT (cold-start audit)
 Read `[CONVENTIONS_PATH]` first, then read `[OUTPUT_PATH]`.
 
 Run these checks on the translated file. Skip: code blocks, backtick spans, YAML frontmatter identifier fields.
@@ -95,6 +87,7 @@ MODERATE:
 - `bold-label`: `**bold**` on prose/labels. Exception: numeric thresholds, measurements, config values.
 - `italic-prose`: `*italic*` on prose outside code/backticks.
 - `horiz-rule`: standalone `---` (¬ YAML delimiter).
+- `blank-after-header`: blank line between `##` header + first content line.
 - `non-english`: non-English prose outside verbatim content. Exception: source proper nouns.
 - `inline-merge`: `- A, B` where A + B are distinct parallel entities.
 - `multiline-cmd`: shell cmd spanning multiple lines outside fenced code block.
@@ -108,12 +101,10 @@ Report format:
 [filepath] — 0 violations ✓
 Summary: [C] critical | [M] moderate
 ```
----
 
 0 violations → continue. Violations present → include audit report in § Deliverable.
 
 ## Deliverable
-
 `[translate][report]`
 
 ```

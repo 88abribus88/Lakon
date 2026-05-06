@@ -26,6 +26,9 @@
 ### v1.1 — 2026-05-06
 - Layout rule: strip blank lines between `##` header + first content line
 - Translation rule: inline prose enumeration "A, B and C" → `A · B · C`
+- Audit: added `blank-after-header` check (MODERATE)
+- Audit: `---` SUBAGENT PROMPT delimiters → `##` header (conventions compliance)
+- Output format: version field updated to `"1.1"`
 
 ### v1.0 — 2026-05-06
 - Initial release
