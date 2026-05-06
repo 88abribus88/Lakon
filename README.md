@@ -100,13 +100,15 @@ Tested across 5 document types with cold-start verification (fresh agent, no con
 | Document type | Token gain | Cold-start |
 |---|---|---|
 | Prose (knowledge base, Wikipedia) | -38 to -41% | PASS |
-| Structured rules / skill files | -20 to -44% | 9/9 PASS |
+| Structured rules / skill files (French source) | -20 to -44% | 9/9 PASS |
 | Technical spec (RFC-style) | -24% | PASS |
 | Markdown with code blocks | -42% | PASS |
 
 Cold-start threshold: PASS = 90%+ of questions answered correctly from translated doc alone.
 
 The benchmark sweet spot is **-20% on rules, -39% on prose** — consistent across model sizes (Haiku → Opus).
+
+The structured rules test used French-language source documents. Lakon translated content to English as part of the pass — the cold-start agent answered questions in English from the translated output only. This validates the cross-language use case: French (or other language) knowledge bases and rule files can be translated to English Lakon in a single pass, with no loss of information.
 
 ---
 
@@ -201,12 +203,13 @@ lakon/
 
 The `examples/` directory contains real translated documents:
 
-| Source | Type | Gain |
-|---|---|---|
-| `requests-readme.md` | Python library README (markdown) | -42% |
-| `rfc9110-excerpt.txt` | HTTP semantics RFC (formal spec) | -24% |
-| `wikipedia-attention.txt` | Wikipedia article (technical prose) | -24% |
-| `crm-wikipedia.txt` | CRM knowledge base article (long prose) | -41% |
+| Source | Type | Source language | Gain |
+|---|---|---|---|
+| `requests-readme.md` | Python library README (markdown) | English | -42% |
+| `rfc9110-excerpt.txt` | HTTP semantics RFC (formal spec) | English | -24% |
+| `wikipedia-attention.txt` | Wikipedia article (technical prose) | English | -24% |
+| `crm-wikipedia.txt` | CRM knowledge base article (long prose) | English | -41% |
+| `test-input.md` | Configuration guide + rule set | French | -40% |
 
 Each `_lakon.md` file can be compared directly against its source.
 
