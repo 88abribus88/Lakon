@@ -29,6 +29,9 @@
 
 ## skills/translate
 
+### v1.2 — 2026-05-06
+- Added `## Layout pass` (step 4): mechanical blank-after-header strip before write
+
 ### v1.1 — 2026-05-06
 - Layout rule: strip blank lines between `##` header + first content line
 - Translation rule: inline prose enumeration "A, B and C" → `A · B · C`

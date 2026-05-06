@@ -3,7 +3,7 @@ name: translate
 description: |
   Translate any source doc to Lakon + verify output via cold-start audit.
   Triggers: "translate", "lakon this", "traduis en lakon", file path provided.
-version: "1.1"
+version: "1.2"
 trigger: explicit
 executor: main-agent
 ---
@@ -16,15 +16,16 @@ executor: main-agent
 ## Steps
 1. Resolve `output` path (§ Input)
 2. Extract source text (§ Extraction)
-3. Apply Lakon (§ Translation) — keep extracted text in memory as `src_text`
-4. Estimate src tok on `src_text`:
+3. Apply Lakon (§ Translation) — keep extracted text as `src_text`, translated as `out_text`
+4. Layout pass on `out_text` (§ Layout pass)
+5. Estimate src tok on `src_text`:
    ```python
    import tiktoken; enc=tiktoken.get_encoding('cl100k_base'); print(len(enc.encode(src_text)))
    ```
-5. Write output file (§ Output format)
-6. Estimate output tok (same cmd on output file content)
-7. Run audit subagent cold-start (§ Audit)
-8. Output report (§ Deliverable)
+6. Write output file (§ Output format)
+7. Estimate output tok (same cmd on output file content)
+8. Run audit subagent cold-start (§ Audit)
+9. Output report (§ Deliverable)
 
 ## Extraction
 `.md` | `.txt` → read directly.
@@ -55,13 +56,23 @@ Apply Lakon per `{root}/conventions.md`. All rules apply:
 - ¬ inline-merge list items
 - Source language ≠ English → translate content to English as part of Lakon pass
 
+## Layout pass
+Apply mechanically on `out_text` before write — strips layout violations that survive the translation pass.
+
+```python
+import re
+out_text = re.sub(r'(^#{1,6} .+)\n\n', r'\1\n', out_text, flags=re.MULTILINE)
+```
+
+¬ touch YAML frontmatter.
+
 ## Output format
 ```yaml
 ---
 source: [path]
 translated_at: [YYYY-MM-DDTHH:MM:SSZ]   ← generate via: python3 -c "from datetime import datetime,timezone; print(datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))"
 skill: skills/translate
-version: "1.1"
+version: "1.2"
 ---
 ```
 + translated content
