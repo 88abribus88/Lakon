@@ -38,7 +38,7 @@ Open an issue with any of the following:
 - **Ambiguity** — a rule or instruction that translated agents interpreted differently
 - **Convention edge case** — a situation where the rules in `conventions.md` gave unclear guidance
 
-Use the issue template provided.
+Use the issue templates in `.github/ISSUE_TEMPLATE/` — [Finding / Feedback](.github/ISSUE_TEMPLATE/finding.md) or [Convention change proposal](.github/ISSUE_TEMPLATE/convention-change.md).
 
 ## Proposing changes to conventions
 

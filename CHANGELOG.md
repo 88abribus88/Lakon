@@ -27,3 +27,8 @@
 
 ### v1.0 — 2026-05-06
 - Initial release
+
+## prompts/translate-system.md
+
+### v1.0 — 2026-05-06
+- Initial release — full Lakon convention set for use without Claude Code (API / Claude.ai Projects)
