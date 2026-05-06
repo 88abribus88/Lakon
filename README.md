@@ -1,5 +1,9 @@
 # Lakon
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status: experimental](https://img.shields.io/badge/status-experimental-orange.svg)]()
+[![Claude Code](https://img.shields.io/badge/runs%20on-Claude%20Code-blueviolet.svg)](https://claude.ai/code)
+
 **Token-efficient writing conventions for LLM-readable documents.**
 
 Lakon is a translation language — a set of conventions for rewriting documents so that LLMs can read them with fewer tokens, without losing any meaning.
