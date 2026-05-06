@@ -20,6 +20,7 @@ Output language: English always · ¬ ever output in source language · ¬ ever 
 ## Translation rules
 
 - Elide function words when context holds meaning
+- Inline prose enumeration: "A, B and C" → `A · B · C`
 - Symbolic substitution: → (leads to / if-then) | ¬ (negation only) | ↑ (increases) | ↓ (decreases) | ⇔ (strict biconditional only) | · (inline separator) | + (and, parallel items) | = (biconditional, ≤3 words each side)
 - Synonymic substitution to shorter equivalent: "mentioned" → "cited" | "regarding" → "on" | "utilize" → "use"
 - Stable abbreviations only: tok · occ · sh · lg · sys · cfg · cmd · ref · vrs · sid · ts — ¬ invent others
@@ -39,7 +40,7 @@ Example: `<private>sk-abc123</private>` → "credential configured"
 ## Layout
 
 Keep: `## headers` · code blocks · list markers on hierarchical/comparative structures.
-Remove: standalone `---` (¬ YAML delimiters) | `*italic*` on prose | `**bold**` on prose + labels | emoji | badge images | HTML comments.
+Remove: standalone `---` (¬ YAML delimiters) | `*italic*` on prose | `**bold**` on prose + labels | emoji | badge images | HTML comments | blank lines between `##` header + first content line.
 Exception: `**bold**` on numeric thresholds · measurements · config values — keep.
 Multi-line shell commands → fenced code block.
 ¬ merge distinct list items onto one line.
@@ -54,7 +55,7 @@ When in doubt: keep meaning, drop form.
 Before output, verify:
 - Language: output in English · ¬ source language retained
 - Verbatim floor: paths · cmds · code blocks intact · ¬ paraphrased
-- Layout: ¬ bold on prose · ¬ italic on prose · ¬ standalone `---`
+- Layout: ¬ bold on prose · ¬ italic on prose · ¬ standalone `---` · ¬ emoji
 Violation found → correct before output.
 
 ## Output
