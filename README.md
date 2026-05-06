@@ -159,6 +159,14 @@ Copy the prompt block into your project system prompt (or API `system` field), t
 
 The prompt is itself written in Lakon — token-efficient by design. It covers all edge cases: verbatim floor, symbol safety (¬ and ⇔ misuse risks), non-inferable content filtering, layout cleanup, and language normalization.
 
+**What to translate**
+
+The two highest-value targets are:
+
+**Prompts and agent instructions.** System prompts, rule files, and behavioral instructions are read by the model on every request. Every token saved there is saved on every call. Lakon is particularly effective here because instructions are dense with connectives, conditionals, and labels — exactly the structure it targets. A system prompt translated to Lakon typically runs 20–44% shorter with no behavioral change.
+
+**Context documents.** Knowledge bases, product specs, policy documents, and reference material fed into a context window accumulate fast. A 5,000-token knowledge base at -40% saves 2,000 tokens of context pressure on every conversation that loads it — freeing space for conversation history, examples, or additional documents. Unlike summarization, Lakon is lossless: the translated document contains everything the original did.
+
 ---
 
 ## Repository structure
