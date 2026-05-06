@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: beta](https://img.shields.io/badge/status-beta-blue.svg)]()
-[![Claude Code](https://img.shields.io/badge/runs%20on-Claude%20Code-blueviolet.svg)](https://claude.ai/code)
+[![Model: agnostic](https://img.shields.io/badge/model-agnostic-lightgrey.svg)]()
 
 **Token-efficient writing conventions for LLM-readable documents.**
 
@@ -104,6 +104,16 @@ Longer words replaced by shorter exact equivalents where the substitution is uni
 > "mentioned" → "cited" | "regarding" → "on" | "utilize" → "use"
 
 ---
+
+## Model transparency
+
+All benchmarks and cold-start tests in this repository were run on Claude (Anthropic). This is the starting point, not the boundary.
+
+Lakon's principles are model-agnostic by design. LLM-native readability, the verbatim floor, and symbolic substitution do not depend on any specific model — they depend on the structure of LLM training data broadly. Any model trained on large English-dominant corpora should respond to the same conventions in the same way.
+
+This is why Lakon is open source. The goal is not to build a tool for one model family — it is to establish a methodology that the community can validate, challenge, and extend across models. Results on GPT, Gemini, Llama, Mistral, and others are as relevant as results on Claude. Divergences between models are findings, not failures — they reveal where the conventions rely on model-specific behavior rather than general LLM competency.
+
+If you test Lakon on a model not listed here, the results are valuable regardless of whether they confirm or contradict the existing benchmarks.
 
 ## Results
 
