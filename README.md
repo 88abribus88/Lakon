@@ -45,6 +45,16 @@ But this only works if what replaces it is already within the model's native com
 
 This is the constraint that separates Lakon from arbitrary compression. A scheme that invents new abbreviations or drops content might reduce tokens while degrading comprehension. Lakon maps to existing LLM competencies: what it removes, models infer; what it substitutes, models already know.
 
+**Why English**
+
+Lakon outputs English regardless of the source language. This is not an arbitrary choice — it follows directly from the LLM-native readability principle.
+
+LLM training data is heavily English-dominant. This means context inference is most reliable in English: models fill gaps, resolve ellipsis, and interpret dense notation with the highest confidence there. The same Lakon-compressed sentence in French may require more tokens for an LLM to process safely, because the contextual shortcuts Lakon relies on are less densely reinforced.
+
+English is also linguistically more compact than most European languages: shorter average word length, less inflection, fewer obligatory articles and particles. A French sentence translated to English before Lakon compression typically yields a larger token reduction than the same sentence compressed in French.
+
+The consequence: **Lakon is more effective in English**, and translating to English is part of the pass for any source language. This is not a limitation — it is the mechanism.
+
 ## Translation, not compression
 
 The distinction matters. A compressor reduces size. A translator preserves intent and behavioral impact across a change of form.
