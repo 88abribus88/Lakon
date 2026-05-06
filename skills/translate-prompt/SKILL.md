@@ -4,7 +4,7 @@ description: |
   Translate a prompt to Lakon + architecturally restructure it.
   Two-pass: Lakon translation → architectural restructuring.
   Triggers: "translate-prompt", "prompt to lakon", file path provided with translate-prompt intent.
-version: "1.1"
+version: "1.2"
 trigger: explicit
 executor: main-agent
 ---
@@ -20,13 +20,14 @@ executor: main-agent
 3. GATE[agent: source contains behavioral rules or identity definition] → proceed; ¬ behavioral prompt → signal, recommend `skills/translate` instead, exit
 4. Pass 1 — Lakon (§ Pass 1)
 5. Pass 2 — Architecture (§ Pass 2)
-6. Estimate tok: src + output
+6. Layout pass — strip before write (§ Layout pass)
+7. Estimate tok: src + output
    ```python
    import tiktoken; enc=tiktoken.get_encoding('cl100k_base'); print(len(enc.encode(text)))
    ```
-7. Write output (§ Output format)
-8. Run audit subagent cold-start (§ Audit)
-9. Output rapport (§ Deliverable)
+8. Write output (§ Output format)
+9. Run audit subagent cold-start (§ Audit)
+10. Output rapport (§ Deliverable)
 
 ## Pass 1
 Apply full Lakon per `{root}/conventions.md`. All rules apply — same as `skills/translate § Translation`.
@@ -74,13 +75,24 @@ Normalize to:
 6. `## Pre-emit check`
 7. `## Output`
 
+## Layout pass
+Apply mechanically on composed content before write — catches layout violations that survive Pass 1/2.
+
+```python
+import re
+# Strip blank lines between ## headers and first content line
+content = re.sub(r'(^#{1,6} .+)\n\n', r'\1\n', content, flags=re.MULTILINE)
+```
+
+Run once on full composed output. ¬ touch YAML frontmatter.
+
 ## Output format
 ```yaml
 ---
 source: [path]
 translated_at: [YYYY-MM-DDTHH:MM:SSZ]   ← python3 -c "from datetime import datetime,timezone; print(datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))"
 skill: skills/translate-prompt
-version: "1.0"
+version: "1.2"
 ---
 ```
 + restructured content

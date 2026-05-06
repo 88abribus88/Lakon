@@ -46,6 +46,10 @@
 
 ## skills/translate-prompt
 
+### v1.2 — 2026-05-06
+- Added `## Layout pass` (step 6): mechanical blank-after-header strip via regex before write
+  Fixes audit subagents reporting violations without applying fixes to the output file
+
 ### v1.1 — 2026-05-06
 - Pass 1: formulation patterns (model response scripts) protected from non-inferable removal
   Signals: "Formulation type :", explicit quoted agent speech defining output phrasing
