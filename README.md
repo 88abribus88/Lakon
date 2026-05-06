@@ -23,7 +23,17 @@ Lakon takes a different approach: **authoring-time translation**.
 
 ---
 
-## The core idea: translation, not compression
+## The core idea: LLM-native readability
+
+The starting point of Lakon is not token reduction — it is readability for LLMs.
+
+LLMs do not read the way humans do. They generate from context, leveraging patterns absorbed during training. Verbose prose, decorative formatting, and connective tissue that human readers need to track meaning — LLMs infer all of this from context. Stripping it does not degrade comprehension; it reduces noise.
+
+But this only works if what replaces it is already within the model's native competency. Lakon does not invent a new notation. Every symbol and abbreviation it uses is one LLMs already understand from training data: `→` as causal connector, `¬` as logical negation, `↑`/`↓` for increase/decrease. The translated document is immediately interpretable by any LLM — no prior exposure to Lakon required.
+
+This is the constraint that separates Lakon from arbitrary compression. A scheme that invents new abbreviations or drops content might reduce tokens while degrading comprehension. Lakon maps to existing LLM competencies: what it removes, models infer; what it substitutes, models already know.
+
+## Translation, not compression
 
 The distinction matters. A compressor reduces size. A translator preserves intent and behavioral impact across a change of form.
 

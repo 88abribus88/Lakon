@@ -8,13 +8,20 @@ is preserved.
 
 Core methodology (required to use the name "Lakon"):
 
-1. Translation, not compression — intent and behavioral impact are preserved
+1. LLM-native readability — translated output must remain immediately
+   interpretable by any LLM without prior exposure to Lakon. Every symbol,
+   abbreviation, and structure used must be one LLMs already understand from
+   training data. Lakon removes what human readers need but LLMs infer from
+   context. It does not invent a new language — it maps to existing LLM
+   competencies.
+
+2. Translation, not compression — intent and behavioral impact are preserved
    across the form change. Size reduction is a byproduct, not the goal.
 
-2. Verbatim floor — paths, commands, URLs, UUIDs, identifiers, and config
+3. Verbatim floor — paths, commands, URLs, UUIDs, identifiers, and config
    values are never modified. Touching them risks silent semantic breakage.
 
-3. Validation — translated output is verified against the source via cold-start
+4. Validation — translated output is verified against the source via cold-start
    or equivalent method. Token gain claims without validation do not qualify.
 
 Works that preserve these three principles may use the name "Lakon" regardless
