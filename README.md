@@ -23,6 +23,18 @@ Lakon takes a different approach: **authoring-time translation**.
 
 ---
 
+## When it's worth it
+
+Translating a document to Lakon costs tokens upfront — the translation call itself has a price. Whether that investment pays off depends entirely on how often the translated document is used.
+
+**High-value targets** are documents read on every request or loaded in every session: system prompts, agent instructions, knowledge bases, rule files. The translation cost is paid once; the saving compounds with every use. A system prompt translated at -30% and called 1,000 times returns that saving 1,000 times over.
+
+**Low-value targets** are documents read once and discarded: one-off reports, single-use context fed into a single conversation. For these, the translation cost may exceed the saving. Lakon is not worth applying to content that won't be reused.
+
+**The context window argument**
+
+Token reduction is not only about cost — it is about conversation longevity. Every token saved in a persistent document is a token freed for conversation history. Lakon-translated knowledge bases and system prompts leave more room for the exchange to breathe: longer sessions before the context window fills, less premature truncation, less pressure to summarize and lose history. The goal is not just cheaper calls — it is conversations that last longer with less noise.
+
 ## The core idea: LLM-native readability
 
 The starting point of Lakon is not token reduction — it is readability for LLMs.
