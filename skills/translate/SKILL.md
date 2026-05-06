@@ -18,12 +18,15 @@ executor: main-agent
 
 1. Resolve `output` path (§ Input)
 2. Extract source text (§ Extraction)
-3. Estimate src tok: `python3 -c "import tiktoken; enc=tiktoken.get_encoding('cl100k_base'); txt=open('[path]').read(); print(len(enc.encode(txt)))"`
-4. Apply Lakon (§ Translation)
+3. Apply Lakon (§ Translation) — keep extracted text in memory as `src_text`
+4. Estimate src tok on `src_text`:
+   ```python
+   import tiktoken; enc=tiktoken.get_encoding('cl100k_base'); print(len(enc.encode(src_text)))
+   ```
 5. Write output file (§ Output format)
-6. Estimate output tok (same cmd on output file)
+6. Estimate output tok (same cmd on output file content)
 7. Run audit subagent cold-start (§ Audit)
-8. Output rapport (§ Livrable)
+8. Output report (§ Livrable)
 
 ## Extraction
 
@@ -72,13 +75,13 @@ Filename: `[basename]_lakon.md`
 ## Audit
 
 After write, spawn cold-start subagent.
-Subagent receives: output file path + `{root}/conventions.md` path.
+Main agent substitutes `[CONVENTIONS_PATH]` = `{root}/conventions.md` and `[OUTPUT_PATH]` = output file path before passing prompt below.
 Subagent has no prior context — instructions below are complete.
 
 ---
 SUBAGENT PROMPT (cold-start audit):
 
-Read `conventions.md` first, then read the translated file.
+Read `[CONVENTIONS_PATH]` first, then read `[OUTPUT_PATH]`.
 
 Run these checks on the translated file. Skip: code blocks, backtick spans, YAML frontmatter identifier fields.
 
@@ -97,7 +100,7 @@ MODERATE:
 
 Report format:
 ```
-[translate-audit][rapport]
+[translate-audit][report]
 [filepath] — N violations
   L[n] CRITICAL  [check-id]  [excerpt] → [proposed fix]
   L[n] MODERATE  [check-id]  [excerpt] → [proposed fix]
@@ -106,18 +109,18 @@ Summary: [C] critical | [M] moderate
 ```
 ---
 
-0 violations → continue. Violations present → include audit rapport in § Livrable.
+0 violations → continue. Violations present → include audit report in § Livrable.
 
-## Livrable
+## Deliverable
 
-`[translate][rapport]`
+`[translate][report]`
 
 ```
-[translate][rapport]
+[translate][report]
 Source:     [path] ([format])
 Output:     [output_path]
 Tokens:     [src_tok] → [out_tok] (-X%)
 Audit:      [0 violations ✓ | C critical + M moderate — see below]
 
-[audit rapport if violations]
+[audit report if violations]
 ```

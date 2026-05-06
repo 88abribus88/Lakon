@@ -23,7 +23,7 @@ executor: main-agent
 3. Test B — Cold-start info loss (§ Test B)
 4. Test C — Comprehension (§ Test C)
 5. Test D — Ambiguity (§ Test D)
-6. Output rapport (§ Livrable)
+6. Output report (§ Livrable)
 
 ## Test A — Token gain
 
@@ -48,7 +48,7 @@ N calibration:
 - > 5000 tok → 20 questions
 
 Question types (distribute evenly):
-- Factual recall: specific value, date, name, threshold cited in source
+- Factual recall: specific value | date | name | threshold cited in source
 - Procedural: "what are the steps to X?"
 - Conditional: "under what condition does Y apply?"
 - Prohibition: "what does the doc say ¬ to do?"
@@ -80,8 +80,9 @@ Verdict: PASS = same conclusions + ≥ 80% facts matched | WARN = same conclusio
 ## Test D — Ambiguity
 
 Select 2 rules or instructions from translated doc (prefer conditional/prohibition rules).
+For each rule: define 1 scenario requiring applying the rule — use same scenario for all 3 subagents.
 Spawn 3 subagents per rule (6 total), each cold-start.
-Give each subagent: translated doc + scenario requiring applying the rule.
+Give each subagent: translated doc + same scenario.
 
 Assess behavioral consistency across 3 agents per rule:
 - All 3 same behavior → PASS (100%)
@@ -89,14 +90,14 @@ Assess behavioral consistency across 3 agents per rule:
 - All different → FAIL (33%)
 
 Overall ambiguity score = avg across 2 rules.
-Benchmark: L0 prose avg 44% consistency (lower = more ambiguous). Lakon target ≥ 65%.
+Benchmark: our tests measured prose (L0) at 44% avg consistency. Lakon target ≥ 65%.
 
-## Livrable
+## Deliverable
 
-`[test][rapport]`
+`[test][report]`
 
 ```
-[test][rapport]
+[test][report]
 Source:   [source] ([src_tok] tok)
 Lakon:    [translated] ([out_tok] tok)
 

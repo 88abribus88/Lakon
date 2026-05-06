@@ -24,7 +24,7 @@ pip install pymupdf
 ## Verify
 
 ```bash
-python3 -c "import tiktoken, docx, pdfminer; print('OK')"
+python3 -c "import tiktoken, docx; from pdfminer.high_level import extract_text; print('OK')"
 ```
 
 ## Skills
