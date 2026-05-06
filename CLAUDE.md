@@ -22,3 +22,9 @@ Benchmarks: -20% avg on structured rules | -39% on prose | cold-start 9/9 PASS.
 All Lakon-translated files: English.
 Source docs: any language — translate content to English as part of Lakon pass.
 The `conventions.md` is the single source of truth for all translation decisions.
+
+## Known quirks
+
+Lakon stable symbols (→ ↑ ↓ ¬ ∴ ⇔ ∧ ·) are Unicode code points above U+007F.
+External linters or text validators that flag non-ASCII characters will false-positive on these.
+They are intentional — ¬ emoji, ¬ formatting noise. Suppress or whitelist in any linter config.
