@@ -2,6 +2,9 @@
 
 ## conventions.md
 
+### v1.5 — 2026-05-06
+- Removed Stella-specific abbrevs from `## stable abbrevs`: sh · lg · sid · vrs
+
 ### v1.4 — 2026-05-06
 - Added `## file formats`: skills, prompts, memory docs → .md | .txt only; ¬ binary formats
 

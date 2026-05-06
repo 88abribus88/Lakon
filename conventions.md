@@ -1,6 +1,6 @@
 ---
 type: meta
-version: 1.4
+version: 1.5
 role: shared core
 ---
 
@@ -72,14 +72,10 @@ absolute     → `¬ ever [rule]` — extends `¬` + temporal scope
 ## stable abbrevs
 - tok
 - occ
-- sh (short-term)
-- lg (long-term)
 - sys
 - cfg
 - cmd
 - ref
-- vrs
-- sid
 - ts
 
 ## file formats
