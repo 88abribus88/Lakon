@@ -26,7 +26,7 @@ executor: main-agent
 5. Write output file (§ Output format)
 6. Estimate output tok (same cmd on output file content)
 7. Run audit subagent cold-start (§ Audit)
-8. Output report (§ Livrable)
+8. Output report (§ Deliverable)
 
 ## Extraction
 
@@ -109,7 +109,7 @@ Summary: [C] critical | [M] moderate
 ```
 ---
 
-0 violations → continue. Violations present → include audit report in § Livrable.
+0 violations → continue. Violations present → include audit report in § Deliverable.
 
 ## Deliverable
 

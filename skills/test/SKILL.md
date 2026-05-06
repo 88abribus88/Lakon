@@ -23,7 +23,7 @@ executor: main-agent
 3. Test B — Cold-start info loss (§ Test B)
 4. Test C — Comprehension (§ Test C)
 5. Test D — Ambiguity (§ Test D)
-6. Output report (§ Livrable)
+6. Output report (§ Deliverable)
 
 ## Test A — Token gain
 
@@ -90,7 +90,7 @@ Assess behavioral consistency across 3 agents per rule:
 - All different → FAIL (33%)
 
 Overall ambiguity score = avg across 2 rules.
-Benchmark: our tests measured prose (L0) at 44% avg consistency. Lakon target ≥ 65%.
+Benchmark: our tests measured baseline prose at 44% avg consistency. Lakon target ≥ 65%.
 
 ## Deliverable
 
