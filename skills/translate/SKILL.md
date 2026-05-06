@@ -63,7 +63,7 @@ Apply Lakon per `{root}/conventions.md`. All rules apply:
 ```yaml
 ---
 source: [path]
-translated_at: [YYYY-MM-DDTHH:MM:SSZ]   ← generate via: date -u +%Y-%m-%dT%H:%M:%SZ
+translated_at: [YYYY-MM-DDTHH:MM:SSZ]   ← generate via: python3 -c "from datetime import datetime,timezone; print(datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))"
 skill: skills/translate
 version: "1.0"
 ---
