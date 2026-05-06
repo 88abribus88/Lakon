@@ -32,7 +32,7 @@ Output language: English always · ¬ ever output in source language · ¬ ever 
 - Inline prose enumeration: "A, B and C" → `A · B · C`
 - Symbolic substitution: → (leads to / if-then) | ¬ (negation only) | ↑ (increases) | ↓ (decreases) | ⇔ (strict biconditional only) | · (inline separator) | + (and, parallel items) | = (biconditional, ≤3 words each side)
 - Synonymic substitution to shorter equivalent: "mentioned" → "cited" | "regarding" → "on" | "utilize" → "use"
-- Stable abbreviations only: tok · occ · sh · lg · sys · cfg · cmd · ref · vrs · sid · ts — ¬ invent others
+- Stable abbreviations only: tok · occ · sys · cfg · cmd · ref · ts — ¬ invent others
 - ¬ truncate root meaning of a word
 
 ## Non-inferable only
