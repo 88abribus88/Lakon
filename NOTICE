@@ -1,11 +1,24 @@
 Lakon
 Copyright (c) 2026 Maxence Méheust
 
-The name "Lakon" identifies this specific writing convention system and its
-associated methodology. Use of the name "Lakon" in derivative works, forks,
-or redistributions is permitted only when the conventions, symbols, and
-behavioral principles defined in conventions.md are preserved without
-material alteration.
+The name "Lakon" identifies a methodology, not a fixed set of conventions.
+Adaptations, extensions, and context-specific variants of the conventions are
+permitted and encouraged — they remain Lakon as long as the core methodology
+is preserved.
 
-Renamed or materially altered derivatives must use a distinct name and may
-not represent themselves as "Lakon" or imply endorsement by the original author.
+Core methodology (required to use the name "Lakon"):
+
+1. Translation, not compression — intent and behavioral impact are preserved
+   across the form change. Size reduction is a byproduct, not the goal.
+
+2. Verbatim floor — paths, commands, URLs, UUIDs, identifiers, and config
+   values are never modified. Touching them risks silent semantic breakage.
+
+3. Validation — translated output is verified against the source via cold-start
+   or equivalent method. Token gain claims without validation do not qualify.
+
+Works that preserve these three principles may use the name "Lakon" regardless
+of how the specific conventions are adapted.
+
+Works that abandon any of these principles must use a distinct name and may not
+represent themselves as "Lakon" or imply endorsement by the original author.
