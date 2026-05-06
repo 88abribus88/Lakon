@@ -166,6 +166,18 @@ Each `_lakon.md` file can be compared directly against its source.
 
 ---
 
+## Name
+
+*Lakon* (Λάκων) — a Laconian, an inhabitant of Lacedaemon (Sparta).
+
+The Laconians were famous throughout the ancient world for their terseness. Laconic speech: say exactly what is needed, nothing more. The word "laconic" derives directly from them.
+
+The most cited example: Philip II of Macedon sent a message to Sparta — *"If I enter Laconia, I will level Sparta to the ground."* The Spartan reply: *"If."*
+
+That is the spirit of this system. Every token that carries no meaning is a token wasted.
+
+---
+
 ## License
 
-MIT — see `LICENSE`.
+MIT — see `LICENSE`. The name "Lakon" is subject to additional terms — see `NOTICE`.
