@@ -112,6 +112,12 @@ Target: ≥ 65% behavioral consistency across agents (vs. ~44% for plain prose).
 
 ## Getting started
 
+There are two ways to use Lakon depending on your setup.
+
+### With Claude Code
+
+Claude Code automates the full workflow: extraction, translation, token counting, and cold-start audit.
+
 **1. Install dependencies**
 
 ```bash
@@ -145,6 +151,14 @@ test lakon source=original.md translated=original_lakon.md
 
 Runs 4 tests: token gain measurement, cold-start info loss verification, comprehension comparison, and ambiguity consistency test.
 
+### Without Claude Code
+
+If you are using Claude.ai Projects, the API, or any Claude interface without Claude Code, use the system prompt in `prompts/translate-system.md`.
+
+Copy the prompt block into your project system prompt (or API `system` field), then send documents directly. Claude will translate them to Lakon following the full convention set.
+
+The prompt is itself written in Lakon — token-efficient by design. It covers all edge cases: verbatim floor, symbol safety (¬ and ⇔ misuse risks), non-inferable content filtering, layout cleanup, and language normalization.
+
 ---
 
 ## Repository structure
@@ -152,6 +166,8 @@ Runs 4 tests: token gain measurement, cold-start info loss verification, compreh
 ```
 lakon/
   conventions.md          — Lakon rules (the single source of truth)
+  prompts/
+    translate-system.md   — system prompt for use without Claude Code
   skills/
     translate/SKILL.md    — translate any doc to Lakon + audit
     test/SKILL.md         — 4-protocol validation suite
