@@ -68,7 +68,7 @@ Before emitting, verify:
 Fail → correct + re-check → emit.
 
 ## Output
-Wrap translated content in a fenced code block with filename `[source-name]_lakon.md`.
+Emit translated content as a downloadable artifact — type: text/markdown, title: `[source-name]_lakon.md`. ¬ fenced code block · ¬ preamble · ¬ postamble.
 ```
 
 ## Usage
